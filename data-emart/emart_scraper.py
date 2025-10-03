@@ -10,38 +10,12 @@ import os, json, time, random
 # 0. 유틸 함수
 # ========================
 USER_AGENTS = [
-    # MacOS - Chrome
-    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
-    "AppleWebKit/537.36 (KHTML, like Gecko) "
-    "Chrome/118.0.5993.118 Safari/537.36",
-
-    # MacOS - Safari
-    "Mozilla/5.0 (Macintosh; Intel Mac OS X 13_4) "
-    "AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.4 Safari/605.1.15",
-
-    # Windows 10 - Chrome
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-    "AppleWebKit/537.36 (KHTML, like Gecko) "
-    "Chrome/117.0.5938.150 Safari/537.36",
-
-    # Windows 10 - Edge
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-    "AppleWebKit/537.36 (KHTML, like Gecko) "
-    "Chrome/116.0.5845.188 Safari/537.36 Edg/116.0.1938.81",
-
-    # Linux - Chrome
-    "Mozilla/5.0 (X11; Linux x86_64) "
-    "AppleWebKit/537.36 (KHTML, like Gecko) "
-    "Chrome/115.0.5790.171 Safari/537.36",
-
-    # iPhone (모바일)
-    "Mozilla/5.0 (iPhone; CPU iPhone OS 16_5 like Mac OS X) "
-    "AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.5 Mobile/15E148 Safari/604.1",
-
-    # Android - Chrome
-    "Mozilla/5.0 (Linux; Android 13; Pixel 7 Pro) "
-    "AppleWebKit/537.36 (KHTML, like Gecko) "
-    "Chrome/118.0.5993.118 Mobile Safari/537.36"
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36",
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36",
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:123.0) Gecko/20100101 Firefox/123.0",
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:123.0) Gecko/20100101 Firefox/123.0",
+    "Mozilla/5.0 (X11; Linux x86_64; rv:123.0) Gecko/20100101 Firefox/123.0",
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Edge/121.0.0.0 Safari/537.36",
 ]
 random_agent = random.choice(USER_AGENTS)
 
@@ -79,7 +53,7 @@ json_path = os.path.join(year_folder, json_filename)
 # ========================
 options = Options()
 options.add_argument(f"user-agent={random_agent}")
-# options.add_argument("--headless")
+options.add_argument("--headless")
 options.add_argument("--no-sandbox")
 options.add_argument("--disable-dev-shm-usage")
 options.add_argument("--disable-gpu")
@@ -150,11 +124,41 @@ for i in range(len(store_links)):
     browser.execute_script("arguments[0].scrollBy(0,24);", target)
     time.sleep(random.uniform(1.5, 2.5))
 
+
 # ========================
-# 8. JSON 저장
+# 6. 종류별 카운트
 # ========================
+categories = [
+    "스타필드마켓",
+    "이마트",
+    "트레이더스 홀세일 클럽",
+    "에브리데이",
+    "노브랜드",
+    "몰리스",
+    "일렉트로마트 스타필드"
+]
+
+summary = {cat: 0 for cat in categories}
+
+for store in results:
+    name = store.get("store_name", "")
+    for cat in categories:
+        if cat in name:
+            summary[cat] += 1
+            break   # 첫 번째 일치한 카테고리에서 중단
+
+
+# ========================
+# 7. JSON 저장
+# ========================
+final_output = {
+    "date": current_date,
+    "summary": summary,
+    "stores": results
+}
+
 with open(json_path, "w", encoding="utf-8") as f:
-    json.dump(results, f, ensure_ascii=False, indent=2)
+    json.dump(final_output, f, ensure_ascii=False, indent=2)
 print(f"\n✅ 전체 {len(results)}개 점포 데이터 저장 완료 → {json_path}")
 
 browser.quit()
