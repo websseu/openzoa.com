@@ -47,7 +47,7 @@ jobs:
         run: |
           git config --global user.email "webstoryboy@naver.com"
           git config --global user.name "websseu"
-          git add -A data-emart/ || echo "No files to add"
+          git add data-emart/**/*.json
           git commit -m "Emart 업데이트 - $(date +\"%Y-%m-%d\")" || echo "No changes to commit"
 
       # 7. 변경사항 푸시
