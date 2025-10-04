@@ -40,7 +40,7 @@ jobs:
       # 5. 스크립트 실행 및 커밋
       - name: Run Scripts and Commit Changes
         run: |
-          python3 data-emart.py
+          python3 data-emart/emart.py
           git add data-emart/**/*.json
           git commit -m "Emart Updated - $(date +"%Y-%m-%d")" || echo "No changes to commit"
 
