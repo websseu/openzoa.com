@@ -1987,7 +1987,7 @@
     {
       "store_name": "트레이더스 홀세일 클럽 부천점",
       "shopping_time": "10:00~23:00",
-      "closed_days": "10/12(일), 10/26(일), 11/9(일) , 11/23(일)",
+      "closed_days": "10/12(일), 10/26(일)",
       "customer_center": "02-6256-1234",
       "parking_info": "총 1,866대",
       "coordinates": {
@@ -2127,7 +2127,7 @@
     {
       "store_name": "트레이더스 홀세일 클럽 월계점",
       "shopping_time": "10:00~23:00",
-      "closed_days": "10/12(일), 10/26(일), 11/9(일) , 11/23(일)",
+      "closed_days": "10/12(일), 10/26(일)",
       "customer_center": "02-6320-1234",
       "parking_info": "총 1274대",
       "coordinates": {
