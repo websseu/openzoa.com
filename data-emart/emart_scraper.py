@@ -82,7 +82,8 @@ store_links = wait.until(
 # ========================
 results = []
 
-for i in range(len(store_links)):
+# for i in range(len(store_links)):
+for i in range(5):
 
     # ▶ 점포 클릭
     store_links[i].click()
