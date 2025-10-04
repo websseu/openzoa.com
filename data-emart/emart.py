@@ -58,7 +58,7 @@ json_path = os.path.join(year_folder, json_filename)
 # ========================
 options = Options()
 options.add_argument(f"user-agent={random_agent}")
-# options.add_argument("--headless")
+options.add_argument("--headless")
 options.add_argument("--no-sandbox")
 options.add_argument("--disable-dev-shm-usage")
 options.add_argument("--disable-gpu")
