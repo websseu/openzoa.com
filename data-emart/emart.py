@@ -91,7 +91,7 @@ store_links = wait.until(
 results = []
 
 # for i in range(len(store_links)):  
-for i in range(3):  
+for i in range(4):  
     # ▶ 점포 클릭
     store_links[i].click()
     print(f"\n▶ {i+1}번째 점포 클릭 →", store_links[i].text.strip())
