@@ -1,0 +1,20 @@
+# ▶ 환경변수 파일 (DB 정보 등)
+.env
+
+# ▶ 가상환경
+.venv/
+venv/
+env/
+
+# ▶ 로그 파일
+*.log
+
+# ▶ 기타 개인 설정 파일
+*.DS_Store
+.idea/
+.vscode/
+
+cgi-bin/
+phpMyAdmin/
+.vscode/
+phpMyAdmin/
