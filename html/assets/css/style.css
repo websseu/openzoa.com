@@ -1,0 +1,152 @@
+@charset "UTF-8";
+
+@import url('./_fonts.css');
+@import url('./_resets.css');
+@import url('./_commons.css');
+
+/* 사이트 공통 레이아웃 */
+header {
+    background-color: #F6F5F2;
+    border-radius: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 20px 10px;
+}
+
+main {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+footer {
+    background-color: #F6F5F2;
+    border-radius: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 40px;
+    margin-bottom: 10px;
+    text-align: center;
+    padding: 20px;
+    font-family: 'NanumBarunpen';
+    color: #555;
+}
+
+/* 사이트 레이아웃(container) */
+.site-container {
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.site-container main {
+    flex: 1;
+}
+
+/* .site-header */
+.site-header h1 {
+    text-align: center;
+    font-family: 'NanumSquareNeo';
+    text-transform: uppercase;
+    font-weight: 100;
+}
+
+.site-header p {
+    text-align: center;
+    color: #555;
+    font-family: 'NanumBarunpen';
+}
+
+/* store-search */
+.store-search {
+    border-radius: 5px;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.store-search>form {
+    display: flex;
+    gap: 10px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.store-search input {
+    border: 1px solid #ccc;
+    border-radius: 50px;
+    padding: 5px 20px;
+    font-family: 'NanumBarunpen';
+    height: 46px;
+    width: 100%;
+}
+
+.store-search button {
+    background-color: #102E2B;
+    color: #fff;
+    border: 2px solid #102E2B;
+    border-radius: 50px;
+    padding: 6px 30px;
+    font-family: 'NanumBarunpen';
+    height: 46px;
+    min-width: 120px;
+    transition: background-color 0.5s ease;
+}
+
+.store-search button:hover {
+    background-color: #1e4a45;
+}
+
+
+/* store-list */
+.store-list {
+    margin-top: 30px;
+}
+
+.store-list ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.store-list li {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.store-list li a {
+    border-radius: 10px;
+}
+
+.store-list img {
+    width: 80px;
+    border: 1px solid #e6e6e6;
+    border-radius: 30px;
+    transition: all 400ms ease-in-out;
+}
+
+.store-list img:hover {
+    border-radius: 50px;
+}
+
+.store-list span {
+    position: absolute;
+    right: -8px;
+    top: -8px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: red;
+    color: #fff;
+    font-size: 14px;
+    border-radius: 50%;
+    font-family: 'GmarketSans';
+    font-weight: 500;
+    padding-top: 2px;
+}
