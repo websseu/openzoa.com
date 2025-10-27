@@ -3,6 +3,7 @@
 @import url('./_fonts.css');
 @import url('./_resets.css');
 @import url('./_commons.css');
+@import url('./_admin.css');
 
 /* 사이트 공통 레이아웃 */
 header {
@@ -61,7 +62,7 @@ footer {
     font-family: 'NanumBarunpen';
 }
 
-/* store-search */
+/* 스토어 검색 */
 .store-search {
     border-radius: 5px;
     text-align: center;
@@ -88,52 +89,54 @@ footer {
     background-color: #102E2B;
     color: #fff;
     border: 2px solid #102E2B;
-    border-radius: 50px;
-    padding: 6px 30px;
-    font-family: 'NanumBarunpen';
+    border-radius: 46px;
     height: 46px;
-    min-width: 120px;
+    width: 46px;
+    flex-shrink: 0;
     transition: background-color 0.5s ease;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 24px 24px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' stroke='white' fill='none' stroke-width='2' viewBox='0 0 24 24'%3E%3Cpath d='M21 21L16.65 16.65M19 11C19 15.42 15.42 19 11 19C6.58 19 3 15.42 3 11C3 6.58 6.58 3 11 3C15.42 3 19 6.58 19 11Z'/%3E%3C/svg%3E");
 }
 
 .store-search button:hover {
     background-color: #1e4a45;
 }
 
-
-/* store-list */
-.store-list {
+/*  브랜드 목록 */
+.brand-list {
     margin-top: 30px;
 }
 
-.store-list ul {
+.brand-list ul {
     display: flex;
     flex-wrap: wrap;
-    gap: 15px;
+    gap: 10px;
 }
 
-.store-list li {
+.brand-list li {
     position: relative;
     display: inline-block;
     cursor: pointer;
 }
 
-.store-list li a {
+.brand-list li a {
     border-radius: 10px;
 }
 
-.store-list img {
+.brand-list img {
     width: 80px;
     border: 1px solid #e6e6e6;
     border-radius: 30px;
     transition: all 400ms ease-in-out;
 }
 
-.store-list img:hover {
+.brand-list img:hover {
     border-radius: 50px;
 }
 
-.store-list span {
+.brand-list span {
     position: absolute;
     right: -8px;
     top: -8px;
@@ -144,9 +147,154 @@ footer {
     justify-content: center;
     background: red;
     color: #fff;
-    font-size: 14px;
+    font-size: 12px;
     border-radius: 50%;
     font-family: 'GmarketSans';
     font-weight: 500;
     padding-top: 2px;
+}
+
+/* 매장 리스트 */
+.store-list {
+    font-family: 'NanumBarunpen';
+    text-align: center;
+
+    h2 {
+        margin-top: 20px;
+        padding-bottom: 2px;
+    }
+
+    h2 img {
+        width: 36px;
+        border-radius: 50%;
+        border: 1px solid #ededed;
+    }
+
+    p {
+        margin-bottom: 20px;
+    }
+}
+
+/* 매장 테이블 */
+.store-table {
+    overflow-x: auto;
+    text-align: left;
+
+    table {
+        font-family: 'NanumBarunpen';
+    }
+
+    thead {
+        background-color: #e9e9e9;
+    }
+
+    thead th {
+        padding: 6px 10px;
+        font-weight: 600;
+        font-size: 0.95rem;
+        white-space: nowrap;
+    }
+
+    thead th:last-child {
+        text-align: right;
+    }
+
+    tbody tr {
+        border-bottom: 1px solid #eee;
+        transition: background-color 0.3s ease;
+    }
+
+    tbody tr:hover {
+        background-color: #f5f5f5;
+        cursor: pointer;
+    }
+
+    tbody td {
+        padding: 6px 10px;
+        font-size: 0.95rem;
+        vertical-align: middle;
+        color: #333;
+    }
+
+    tbody td:last-child {
+        text-align: right;
+    }
+
+    tbody td a:hover {
+        text-decoration: underline;
+        text-underline-offset: 4px;
+    }
+
+    .center {
+        text-align: center !important;
+    }
+
+    .brand img {
+        width: 22px;
+    }
+}
+
+@media (max-width: 768px) {
+    .store-table {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .store-table table {
+        min-width: 700px;
+    }
+}
+
+/* 스토어 상세페이지 */
+.store-detail {
+    margin-top: 30px;
+
+    h2,
+    h3 {
+        font-family: 'NanumBarunpen';
+    }
+
+    h2 img {
+        width: 34px;
+        height: 34px;
+        border-radius: 5px;
+        margin-top: 2px;
+        border: 1px solid #f3f3f3;
+    }
+
+    ul {
+        margin-top: 10px;
+        list-style: disc;
+        padding-left: 16px;
+    }
+
+    li {
+        line-height: 1.8;
+    }
+
+    .map {
+        margin-top: 20px;
+
+        a {
+            display: inline-block;
+            margin-right: 3px;
+            border-radius: 5px;
+        }
+    }
+
+    .area {
+        width: 100%;
+        height: 400px;
+        margin-top: 16px;
+    }
+
+    h3 {
+        margin-bottom: 10px;
+    }
+}
+
+/* 검색 결과 */
+.search-result {
+    text-align: center;
+    margin: 20px 0;
 }

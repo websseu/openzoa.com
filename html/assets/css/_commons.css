@@ -11,6 +11,25 @@
     border: 0;
 }
 
+/* 에이전트 */
+.only-pc,
+.only-ios,
+.only-android {
+    display: none !important;
+}
+
+html.is-pc .only-pc {
+    display: inline-block !important;
+}
+
+html.is-ios .only-ios {
+    display: inline-block !important;
+}
+
+html.is-android .only-android {
+    display: inline-block !important;
+}
+
 /* 로딩 */
 #page-loader {
     position: fixed;
@@ -242,4 +261,25 @@
 
 .small {
     color: #777;
+    font-size: 0.8rem;
+    font-weight: normal;
+}
+
+.icon {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #f3f3f3;
+    border-radius: 10px;
+}
+
+.hidden {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: block;
+    width: 30px;
+    height: 60px;
+    cursor: move;
+    outline: none;
+    background: transparent;
 }

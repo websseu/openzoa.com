@@ -93,3 +93,9 @@ img {
     vertical-align: top;
     border: 0;
 }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
